@@ -1,2 +1,4 @@
-package org.example;public class Basket {
+package org.example;
+
+public class Basket {
 }
