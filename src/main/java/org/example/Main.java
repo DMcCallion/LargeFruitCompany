@@ -1,12 +1,15 @@
 package org.example;
 
+import org.example.discount.*;
+import org.example.fruit.*;
+
 public class Main {
     public static void main(String[] args) {
 
         Fruit apple = new Apple();
-        Fruit orange = new Fruit("ORANGE", 75);
-        Fruit mango = new Fruit("MANGO", 250);
-        Fruit cherry = new Fruit("CHERRY", 24);
+        Fruit orange = new Orange();
+        Fruit mango = new Mango();
+        Fruit cherry = new Cherry();
 
         Basket basket = new Basket();
 
@@ -20,9 +23,25 @@ public class Main {
 
         System.out.println(basket.basketValue);
 
-        DiscountCalculator disc = new DiscountCalculator();
+        MangoDiscount mangoDiscount = new MangoDiscount();
+        AppleDiscount appleDiscount = new AppleDiscount();
+        CherryDiscount cherryDiscount = new CherryDiscount();
+        BigSpenderDiscount bigSpenderDiscount = new BigSpenderDiscount();
 
-        disc.doAllTheDiscounts(basket);
+
+        if (mangoDiscount.checkValid(basket)) {
+            mangoDiscount.applyDiscount(basket);
+        }
+        if (appleDiscount.checkValid(basket)) {
+            appleDiscount.applyDiscount(basket);
+        }
+        if (cherryDiscount.checkValid(basket)) {
+            cherryDiscount.applyDiscount(basket);
+        }
+        if (bigSpenderDiscount.checkValid(basket)) {
+            bigSpenderDiscount.applyDiscount(basket);
+        }
+
         System.out.println(basket.basketValue);
 
     }
@@ -33,10 +52,4 @@ public class Main {
 TODO
 - CLI
 - Typo and other error handling
-
-Tests:
-- valid input
-- invalid input
-- shopping basket methods work as expected (calculating basket value correctly)
-
  */
