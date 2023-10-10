@@ -3,8 +3,7 @@ package org.example;
 import org.example.discount.*;
 import org.example.fruit.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Main {
@@ -49,6 +48,7 @@ public class Main {
             }
         }
         System.out.println(basket.getContents());
+        basket.printContents();
         System.out.println(basket.getBasketValue());
 
         if (mangoDiscount.checkValid(basket)) {
