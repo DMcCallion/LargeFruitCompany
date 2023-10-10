@@ -8,11 +8,7 @@ public class BigSpenderDiscount implements Discount{
     final static float BIG_SPENDER_PERCENTAGE = 0.02f;
     @Override
     public boolean checkValid(Basket basket) {
-        if (basket.getBasketValue() > BIG_SPENDER_FLOOR) {
-            return true;
-        } else {
-            return false;
-        }
+        return basket.getBasketValue() >= BIG_SPENDER_FLOOR;
     }
 
     @Override

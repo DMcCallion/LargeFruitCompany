@@ -7,11 +7,7 @@ public class CherryDiscount implements Discount{
     final static int FLAT_CHERRY_DISCOUNT = 50; // in pennies
     @Override
     public boolean checkValid(Basket basket) {
-        if (basket.fruitCount("CHERRY") >= CHERRIES_FOR_DISCOUNT) {
-            return true;
-        } else {
-            return false;
-        }
+        return basket.fruitCount("CHERRY") >= CHERRIES_FOR_DISCOUNT;
 
     }
 

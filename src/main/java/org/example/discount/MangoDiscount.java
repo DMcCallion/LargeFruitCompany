@@ -7,11 +7,7 @@ public class MangoDiscount implements Discount{
     final static int MANGOES_FOR_FREE_APPLE = 3;
     @Override
     public boolean checkValid(Basket basket) {
-        if (basket.fruitCount("MANGO") >= MANGOES_FOR_FREE_APPLE && basket.fruitCount("APPLE") >= 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return basket.fruitCount("MANGO") >= MANGOES_FOR_FREE_APPLE && basket.fruitCount("APPLE") >= 1;
     }
 
     @Override
