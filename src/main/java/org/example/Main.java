@@ -3,6 +3,10 @@ package org.example;
 import org.example.discount.*;
 import org.example.fruit.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -13,21 +17,39 @@ public class Main {
 
         Basket basket = new Basket();
 
-        basket.addFruit(apple);
-        basket.addFruit(apple);
-        basket.addFruit(apple);
-        basket.addFruit(mango);
-        basket.addFruit(mango);
-        basket.addFruit(mango);
-        basket.printContents();
-
-        System.out.println(basket.basketValue);
-
         MangoDiscount mangoDiscount = new MangoDiscount();
         AppleDiscount appleDiscount = new AppleDiscount();
         CherryDiscount cherryDiscount = new CherryDiscount();
         BigSpenderDiscount bigSpenderDiscount = new BigSpenderDiscount();
 
+
+        System.out.println("Enter all fruit, separated by spaces");
+        Scanner scanner = new Scanner(System.in);
+
+
+        String[] inputs = scanner.nextLine().toUpperCase().split(" ");
+
+
+        for (String fruit : inputs) {
+            switch (fruit) {
+                case "APPLE" :
+                    basket.addFruit(apple);
+                    break;
+                case "ORANGE" :
+                    basket.addFruit(orange);
+                    break;
+                case "MANGO" :
+                    basket.addFruit(mango);
+                    break;
+                case "CHERRY" :
+                    basket.addFruit(cherry);
+                    break;
+                default:
+                    System.out.println("Invalid Fruit or Typo");
+            }
+        }
+        System.out.println(basket.getContents());
+        System.out.println(basket.getBasketValue());
 
         if (mangoDiscount.checkValid(basket)) {
             mangoDiscount.applyDiscount(basket);
@@ -42,7 +64,7 @@ public class Main {
             bigSpenderDiscount.applyDiscount(basket);
         }
 
-        System.out.println(basket.basketValue);
+        System.out.println(basket.getBasketValue());
 
     }
 }
@@ -50,6 +72,6 @@ public class Main {
 
 /*
 TODO
-- CLI
-- Typo and other error handling
+
+- error handling
  */

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Basket {
 
     ArrayList<Fruit> contents = new ArrayList<>();
-    int basketValue = 0;
+    private int basketValue = 0;
 
     public int getBasketValue() {
         return basketValue;
