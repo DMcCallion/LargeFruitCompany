@@ -13,7 +13,9 @@ public class BigSpenderDiscount implements Discount{
 
     @Override
     public void applyDiscount(Basket basket) {
-        basket.setBasketValue(basket.getBasketValue() -
-                (int) (basket.getBasketValue() * BIG_SPENDER_PERCENTAGE));
+        int reduction = (int) (basket.getBasketValue() * BIG_SPENDER_PERCENTAGE);
+        basket.setBasketValue(basket.getBasketValue() - reduction);
+        System.out.println("Big Spender Discount -" + reduction + "p");
+
     }
 }

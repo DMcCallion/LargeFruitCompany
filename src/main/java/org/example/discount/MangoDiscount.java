@@ -1,6 +1,7 @@
 package org.example.discount;
 
 import org.example.Basket;
+import org.example.fruit.Apple;
 import org.example.fruit.Fruit;
 
 public class MangoDiscount implements Discount{
@@ -15,8 +16,10 @@ public class MangoDiscount implements Discount{
         for (Fruit content : basket.getContents()) {
             if ("APPLE".equals(content.getType())) {
                 basket.setBasketValue(basket.getBasketValue() - content.price); // First apple is free - total minus price of apple
+                System.out.println("1 Free Apple -" + Apple.price + "p");
                 break;
             }
         }
     }
+
 }

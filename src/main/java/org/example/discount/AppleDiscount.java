@@ -16,12 +16,16 @@ public class AppleDiscount implements Discount{
         MangoDiscount mangoDiscount = new MangoDiscount();
 
         if (mangoDiscount.checkValid(basket)) { //If we already did mango discount, don't count the free apple here
-            basket.setBasketValue(basket.getBasketValue() -
-                    (int) ((basket.fruitCount("APPLE") - 1) * Apple.price * PERCENTAGE_APPLE_DISCOUNT));
+            int reduction = (int) ((basket.fruitCount("APPLE") - 1) * Apple.price * PERCENTAGE_APPLE_DISCOUNT);
+            basket.setBasketValue(basket.getBasketValue() - reduction);
+            System.out.println("Apple Discount -" + reduction + "p");
         } else {
-            basket.setBasketValue(basket.getBasketValue() -
-                    (int) (basket.fruitCount("APPLE") * (Apple.price) * PERCENTAGE_APPLE_DISCOUNT));
+            int reduction = (int) (basket.fruitCount("APPLE") * (Apple.price) * PERCENTAGE_APPLE_DISCOUNT);
+            basket.setBasketValue(basket.getBasketValue() -reduction);
+            System.out.println("Apple Discount -" + reduction + "p");
         }
 
     }
+
+
 }

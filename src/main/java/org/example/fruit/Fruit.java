@@ -1,6 +1,8 @@
 package org.example.fruit;
 
+
 public class Fruit {
+
     final String type;
     public int price;
 
@@ -18,6 +20,6 @@ public class Fruit {
     }
 
     public void setPrice(int price) {
-        this.price = price;
+        this.price = Math.max(price, 0);
     }
 }

@@ -14,5 +14,6 @@ public class CherryDiscount implements Discount{
     @Override
     public void applyDiscount(Basket basket) {
         basket.setBasketValue(basket.getBasketValue() - FLAT_CHERRY_DISCOUNT);
+        System.out.println("Cherry Discount -" + FLAT_CHERRY_DISCOUNT + "p");
     }
 }
